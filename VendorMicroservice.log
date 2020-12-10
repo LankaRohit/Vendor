@@ -59,3 +59,23 @@ INFO  11:32:41  Http GET in controller is accesed
 INFO  11:32:41  Http GET in provider is accesed
 INFO  11:32:41 method execution in controller completed
 INFO  11:32:41 available vendors for product with id 6 is System.Collections.Generic.List`1[VendorMicroService.Models.Vendor]
+INFO  12:42:19 Application started. Press Ctrl+C to shut down.
+INFO  12:42:19 Application started. Press Ctrl+C to shut down.
+INFO  12:42:19 Hosting environment: Development
+INFO  12:42:19 Hosting environment: Development
+INFO  12:42:19 Content root path: C:\Users\sairo\source\repos\VendorMicroService
+INFO  12:42:19 Content root path: C:\Users\sairo\source\repos\VendorMicroService
+INFO  12:42:32  Http GET in controller is accesed
+INFO  12:42:32  Http GET in provider is accesed
+INFO  12:42:32 method execution in controller completed
+INFO  12:42:32 available vendors for product with id 1 is System.Collections.Generic.List`1[VendorMicroService.Models.Vendor]
+INFO  12:42:44 Application started. Press Ctrl+C to shut down.
+INFO  12:42:44 Application started. Press Ctrl+C to shut down.
+INFO  12:42:44 Hosting environment: Development
+INFO  12:42:44 Hosting environment: Development
+INFO  12:42:44 Content root path: C:\Users\sairo\source\repos\VendorMicroService
+INFO  12:42:44 Content root path: C:\Users\sairo\source\repos\VendorMicroService
+INFO  12:42:59  Http GET in controller is accesed
+INFO  12:42:59  Http GET in provider is accesed
+INFO  12:42:59 method execution in controller completed
+INFO  12:42:59 available vendors for product with id 6 is System.Collections.Generic.List`1[VendorMicroService.Models.Vendor]

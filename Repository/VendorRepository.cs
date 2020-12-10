@@ -11,7 +11,7 @@ namespace VendorMicroService.Repository
         private List<Vendor> vendors;
         private List<VendorStock> vendorstocks;
 
-        public VendorRepository()
+        public   VendorRepository()
         {
             vendors = new List<Vendor>()
             {

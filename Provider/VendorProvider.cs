@@ -24,9 +24,9 @@ namespace VendorMicroService.Provider
                 _log4net.Info(" Http GET in provider is accesed");
                 return venrepository.GetVendorDetails(ProductId);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                _log4net.Error("error in get request");
+                _log4net.Error("exception rised"+e.Message);
                 return null;
                
             }
