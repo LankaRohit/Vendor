@@ -22,7 +22,25 @@ namespace VendorMicroService.Provider
             {
 
                 _log4net.Info(" Http GET in provider is accesed");
-                return venrepository.GetVendorDetails(ProductId);
+               
+
+                List<VendorDto> vendors= venrepository.GetVendorDetails();
+                List<VendorStockDto> vendorstocksdto = venrepository.GetVendorStocks();
+                var availablevendors = from p in vendorstocksdto where p.ProductId == ProductId && p.StockInHand >= 1 select p.VendorId;
+                List<int> availableist = availablevendors.ToList();
+
+                List<VendorDto> vendorslist = new List<VendorDto>();
+                foreach (int i in availableist)
+                {
+                    VendorDto matched = vendors.FirstOrDefault(o => o.VendorId == i);
+
+                    VendorDto m = new VendorDto() { VendorId = matched.VendorId, VendorName = matched.VendorName, DeliveryCharge = matched.DeliveryCharge, Rating = matched.Rating };
+                    vendorslist.Add(m);
+
+                }
+
+                return vendorslist;
+
             }
             catch (Exception e)
             {

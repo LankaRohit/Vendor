@@ -10,7 +10,7 @@ namespace VendorMicroService.Repository
     {
         private List<Vendor> vendors;
         private List<VendorStock> vendorstocks;
-        private List<VendorDto> vendordto;
+         
 
         public   VendorRepository()
         {
@@ -35,26 +35,43 @@ namespace VendorMicroService.Repository
             };
         }
 
-            public List<VendorDto> GetVendorDetails(int ProductId)
+            public List<VendorDto> GetVendorDetails()
         {
-            var availablevendors = from p in vendorstocks where p.ProductId == ProductId && p.StockInHand >= 1 select p.VendorId;
-            List<int> availableist = availablevendors.ToList();
-
-            List<VendorDto> vendorslist = new List<VendorDto>();
-            foreach(int i in availableist)
+            List<VendorDto> vendorsdto=new List<VendorDto>();
+           
+            foreach (Vendor ven in vendors)
             {
-                Vendor matched = vendors.FirstOrDefault(o => o.VendorId == i);
-
-                VendorDto m = new VendorDto() { VendorId = matched.VendorId, VendorName = matched.VendorName, DeliveryCharge = matched.DeliveryCharge, Rating = matched.Rating };
-                vendorslist.Add(m);
-
+                VendorDto vendornewdto = new VendorDto()
+                {
+                    VendorId = ven.VendorId,
+                    VendorName = ven.VendorName,
+                    DeliveryCharge = ven.DeliveryCharge,
+                    Rating = ven.Rating,
+                };
+                vendorsdto.Add(vendornewdto);
             }
-            
-                return vendorslist;
-            
-            
+
+            return vendorsdto;
         
 
+        }
+        public List<VendorStockDto> GetVendorStocks()
+        {
+            List<VendorStockDto> vendorstockdto=new List<VendorStockDto>();
+
+            foreach (VendorStock venst in vendorstocks)
+            {
+                VendorStockDto vendorstocknewdto = new VendorStockDto()
+                {
+                   ProductId=venst.ProductId,
+                   VendorId=venst.VendorId,
+                   StockInHand=venst.StockInHand,
+                   ExpectedStockReplenishmentDate=venst.ExpectedStockReplenishmentDate,
+                };
+                vendorstockdto.Add(vendorstocknewdto);
+            }
+
+            return vendorstockdto;
         }
     }
 }

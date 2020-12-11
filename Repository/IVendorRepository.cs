@@ -8,7 +8,9 @@ namespace VendorMicroService.Repository
 {
     public interface IVendorRepository
     {
-        public List<VendorDto> GetVendorDetails(int ProductId);
+        public List<VendorDto> GetVendorDetails();
+        public List<VendorStockDto> GetVendorStocks();
+
         
     }
 }
