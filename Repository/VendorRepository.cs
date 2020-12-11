@@ -10,6 +10,7 @@ namespace VendorMicroService.Repository
     {
         private List<Vendor> vendors;
         private List<VendorStock> vendorstocks;
+        private List<VendorDto> vendordto;
 
         public   VendorRepository()
         {
@@ -34,23 +35,23 @@ namespace VendorMicroService.Repository
             };
         }
 
-            public List<Vendor> GetVendorDetails(int ProductId)
+            public List<VendorDto> GetVendorDetails(int ProductId)
         {
             var availablevendors = from p in vendorstocks where p.ProductId == ProductId && p.StockInHand >= 1 select p.VendorId;
             List<int> availableist = availablevendors.ToList();
 
-            List<Vendor> vendorslist = new List<Vendor>();
+            List<VendorDto> vendorslist = new List<VendorDto>();
             foreach(int i in availableist)
             {
                 Vendor matched = vendors.FirstOrDefault(o => o.VendorId == i);
-                vendorslist.Add(matched);
+
+                VendorDto m = new VendorDto() { VendorId = matched.VendorId, VendorName = matched.VendorName, DeliveryCharge = matched.DeliveryCharge, Rating = matched.Rating };
+                vendorslist.Add(m);
 
             }
-            if(vendorslist!=null)
-            {
+            
                 return vendorslist;
-            }
-            return null;
+            
             
         
 

@@ -15,7 +15,7 @@ namespace VendorMicroService.Provider
         {
             venrepository = _venrepository;
         }
-        public List<Vendor> GetDetailsOfVendor(int ProductId)
+        public List<VendorDto> GetDetailsOfVendor(int ProductId)
 
         {
             try

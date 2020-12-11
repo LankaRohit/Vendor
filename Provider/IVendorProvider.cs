@@ -8,6 +8,6 @@ namespace VendorMicroService.Provider
 {
     public interface IVendorProvider
     {
-        public List<Vendor> GetDetailsOfVendor(int ProductId);
+        public List<VendorDto> GetDetailsOfVendor(int ProductId);
     }
 }
